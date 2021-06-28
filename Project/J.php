@@ -79,6 +79,7 @@
 		}
 	}
 ?>
+
 <html>
 	<head>
 	<title>Profile</title>
@@ -172,3 +173,4 @@
 			</fieldset>
 		</div>
 	</body>
+</html>
