@@ -9,7 +9,12 @@
 	$err_fee="";
 	$pro="";
 	$err_pro="";
-	
+	$day="";
+	$err_day="";
+	$month="";
+	$err_month="";
+	$year="";
+	$err_year="";
 	
 	$err=false;
 	
@@ -23,7 +28,7 @@
 			$id=$_POST["id"];
 		}
 		if(empty($_POST["name"])){
-			$err_name="Doctor Name Required";
+			$err_name="Name Required";
 			$err = true;
 		}
 		else if(strlen($_POST["name"])<=6){
@@ -54,33 +59,62 @@
 		else{
 			$pro=$_POST["pro"];
 		}
+		if (!isset($_POST["day"])){
+				$err_day="Day must be selected";
+		}
+		else{
+			$day=$_POST["day"];
+		}
+		if (!isset($_POST["month"])){
+			$err_month="Month must be selected";
+		}
+		else{
+			$month=$_POST["month"];
+		}
+		if (!isset($_POST["year"])){
+			$err_year="Year must be selected";
+		}
+		else{
+			$year=$_POST["year"];
+		}
 	}
 ?>
-
 <html>
 	<head>
-	<title>Doctor</title>
+	<title>Profile</title>
 	</head>
-	
 	<body>
 		<div style="border:1px solid black">
-			<h5 align="left"><a href ="homepage.php">Homepage</a>
-							<br>
-						    <a href ="login.php">Login</a>
-							<br>
-							<a href ="profile.php">Profile</a>
-							<br>
-							<a href ="patientlist.php">Patientlist</a>
-							<br>
-							<a href ="appointmentlist.php">Appointmentlist</a>
-							</h5>
-			<h1 align="center">Doctor</h1>
+			<h5 align="left"><a href ="homepage.php">Homepage</a><br><a href ="doctor.php">Back</a></h5>
+			<h1 align="center">Doctor Profile</h1>
 		</div>
 		<br>
 		<div style="border:1px solid black">
 		<h2 align="left">Doctor details</h2>
 		</div>
 		<br>
+		<div>
+			<table width="100%" border="2">
+			<td colspan="6" align="center">Profile Details</td>
+			</tr>
+			<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Department</td>
+			<td>Consult Time</td>
+			<td>Fees</td>
+			<td>Profile</td>
+			</tr>
+			<tr>
+			<td>02</td>
+			<td>Haidar Ali</td>
+			<td>Cardiologist</td>
+			<td>4.00 pm - 9.00 pm</td>
+			<td>800tk</td>
+			<td><a href="H.php">Haidar Ali</a></td>				
+			</tr>
+			</table>
+		</div>
 		<div align ="center">
 			<fieldset>
 				<form action="" method="post">
@@ -111,39 +145,43 @@
 						<td><span><?php echo $err_pro;?></span></td>
 					</tr>
 					<tr>
-					<td align="center" colspan="2"><input type="submit" name="submit"value="Add Doctor"></td>
+					<td align="Right">Birth Date:</td>
+					<td>
+						<select name="day">
+							<option selected disabled>Day</option>
+									<?php
+										for($i=1;$i<=31;$i++)
+										{
+											echo "<option>$i</option>";
+										}
+									?>
+						</select>
+						<select name="month">
+							<option selected disabled>Month</option>
+									<?php
+										$mon= array("January","February","March","April","May","June","July","August","September","October","November","December");
+										for($j=0;$j<count($mon);$j++)
+										{
+											echo "<option>$mon[$j]</option>";
+										}
+									?>
+						</select>
+						<select name="year">
+							<option selected disabled>Year</option>
+									<?php
+										for($k=1948;$k<=2020;$k++)
+										{
+											echo "<option>$k</option>";
+										}
+									?>
+						</select>
+						</td>
+						<td><?php echo "$err_day"."  "."$err_month"."  "."$err_year"?></td>
+					</tr>
+					<tr>
+					<td align="center" colspan="2"><input type="submit" name="submit"value="Change Doctor Settings"></td>
 					</tr>
 				</form>
 			</fieldset>
 		</div>
-		<br>
-		<div>
-		<table width="100%" border="2">
-			<tr>
-			<td>Id</td>
-			<td>Name</td>
-			<td>Department</td>
-			<td>Consult Time</td>
-			<td>Fees</td>
-			<td>Profile</td>
-			</tr>
-			<tr>
-			<td>01</td>
-			<td>Sarafat Murshid</td>
-			<td>Gastroenterologist</td>
-			<td>5.00 pm - 9.00 pm</td>
-			<td>500tk</td>
-			<td><a href="S.php">Sarafat Murshid</a></td>
-			</tr>
-			<tr>
-			<td>02</td>
-			<td>Haidar Ali</td>
-			<td>Cardiologist</td>
-			<td>4.00 pm - 9.00 pm</td>
-			<td>800tk</td>
-			<td><a href="H.php">Haidar Ali</a></td>
-			</tr>
-		</table>
-		</div>`
 	</body>
-</html>

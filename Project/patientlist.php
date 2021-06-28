@@ -5,8 +5,6 @@
 	$err_name="";
 	$dept="";
 	$err_dept="";
-	$fee="";
-	$err_fee="";
 	$pro="";
 	$err_pro="";
 	
@@ -23,7 +21,7 @@
 			$id=$_POST["id"];
 		}
 		if(empty($_POST["name"])){
-			$err_name="Doctor Name Required";
+			$err_name="Patient Name Required";
 			$err = true;
 		}
 		else if(strlen($_POST["name"])<=6){
@@ -40,13 +38,6 @@
 		else{
 			$dept=$_POST["dept"];
 		}
-		if(empty($_POST["fee"])){
-			$err_fee="Fees Required";
-			$err=true;
-		}
-		else{
-			$fee=$_POST["fee"];
-		}
 		if(empty($_POST["pro"])){
 			$err_pro="Profile Required";
 			$err=true;
@@ -54,31 +45,23 @@
 		else{
 			$pro=$_POST["pro"];
 		}
+		
 	}
 ?>
 
 <html>
 	<head>
-	<title>Doctor</title>
+	<title>Patientlist</title>
 	</head>
 	
 	<body>
 		<div style="border:1px solid black">
-			<h5 align="left"><a href ="homepage.php">Homepage</a>
-							<br>
-						    <a href ="login.php">Login</a>
-							<br>
-							<a href ="profile.php">Profile</a>
-							<br>
-							<a href ="patientlist.php">Patientlist</a>
-							<br>
-							<a href ="appointmentlist.php">Appointmentlist</a>
-							</h5>
-			<h1 align="center">Doctor</h1>
+			<h5 align="left"><a href ="homepage.php">Homepage</a><br><a href ="login.php">Login</a><br><a href ="profile.php">Profile</a><br><a href ="doctor.php">Back</a></h5>
+			<h1 align="center">Patientlist</h1>
 		</div>
 		<br>
 		<div style="border:1px solid black">
-		<h2 align="left">Doctor details</h2>
+		<h2 align="left">Patient details</h2>
 		</div>
 		<br>
 		<div align ="center">
@@ -96,22 +79,12 @@
 						<td><span><?php echo $err_name;?></span></td>
 					</tr>
 					<tr>
-						<td align="right">Department: </td>
-						<td><input type="text" name="dept" value="<?php echo $dept;?>" placeholder="Department"></td>
-						<td><span><?php echo $err_dept;?></span></td>
-					</tr>
-					<tr>
-						<td align="right">Fees: </td>
-						<td><input type="number" name="fee" value="<?php echo $fee;?>" placeholder="Fees"></td>
-						<td><span><?php echo $err_fee;?></span></td>
-					</tr>
-					<tr>
 						<td align="right">Profile: </td>
 						<td><input type="text" name="pro" value="<?php echo $pro;?>" placeholder="Profile"></td>
 						<td><span><?php echo $err_pro;?></span></td>
 					</tr>
 					<tr>
-					<td align="center" colspan="2"><input type="submit" name="submit"value="Add Doctor"></td>
+					<td align="center" colspan="2"><input type="submit" name="submit"value="Add Patient"></td>
 					</tr>
 				</form>
 			</fieldset>
@@ -123,25 +96,19 @@
 			<td>Id</td>
 			<td>Name</td>
 			<td>Department</td>
-			<td>Consult Time</td>
-			<td>Fees</td>
 			<td>Profile</td>
 			</tr>
 			<tr>
 			<td>01</td>
-			<td>Sarafat Murshid</td>
+			<td>Jahid Islam</td>
 			<td>Gastroenterologist</td>
-			<td>5.00 pm - 9.00 pm</td>
-			<td>500tk</td>
-			<td><a href="S.php">Sarafat Murshid</a></td>
+			<td><a href="J.php">Jahid Islam</a></td>
 			</tr>
 			<tr>
 			<td>02</td>
-			<td>Haidar Ali</td>
-			<td>Cardiologist</td>
-			<td>4.00 pm - 9.00 pm</td>
-			<td>800tk</td>
-			<td><a href="H.php">Haidar Ali</a></td>
+			<td>Abu Saif </td>
+			<td>cardiologist</td>
+			<td>-</td>
 			</tr>
 		</table>
 		</div>`
