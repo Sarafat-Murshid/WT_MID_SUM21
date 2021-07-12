@@ -24,7 +24,11 @@
 			$err_id="ID Required";
 			$err=true;
 		}
-		else{
+		else if(!is_numeric($_POST["id"])){
+			$err_id="Not a number";
+			$err=true;
+		}
+		else if(is_numeric($_POST["id"])){
 			$id=$_POST["id"];
 		}
 		if(empty($_POST["name"])){
@@ -49,7 +53,11 @@
 			$err_fee="Fees Required";
 			$err=true;
 		}
-		else{
+		else if(!is_numeric($_POST["fee"])){
+			$err_fee="Not a number";
+			$err=true;
+		}
+		else if(is_numeric($_POST["fee"])){
 			$fee=$_POST["fee"];
 		}
 		if(empty($_POST["pro"])){
@@ -119,7 +127,7 @@
 				<table>
 					<tr>
 						<td align="right">ID: </td>
-						<td><input type="number" name="id" value="<?php echo $id;?>" placeholder="Id"></td>
+						<td><input type="text" name="id" value="<?php echo $id;?>" placeholder="Id"></td>
 						<td><span><?php echo $err_id;?></span></td>
 					</tr>
 					<tr>
