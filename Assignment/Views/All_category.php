@@ -12,19 +12,19 @@
 					<th>Name</th>
 					
 				</thead>
-				<tboady>
+				<tbody>
 				    <?php
                         $i = 1;
 						foreach($categories as $c){
 							echo "<tr>";
 							    echo "<td>$i</td>";
-								echo "<td>".$c["name"]."</td>";
+								echo "<td>".$c["cname"]."</td>";
 								echo '<td><a href = "Edit_Category.php?id='.$c["id"].'">Edit</a></td>';
 							echo "</tr>";
 							$i++;
 						}
 					?>
-				</tboady>
+				</tbody>
 			</table>
 		</div>
 	</body>
